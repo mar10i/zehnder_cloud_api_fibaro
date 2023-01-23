@@ -4,6 +4,8 @@ Fibaro HC3 Quickapp development for Zehnder ComfoAirQ control via cloud api
 - Developped using https://github.com/jangabrielsson/TQAE with manual: https://forum.fibaro.com/topic/55045-tiny-quickapp-emulator-tqae/
 - Zehnder Cloud API: https://portal.zehnder.cloudapi.ch/
 
+To control you ComfoAirQ with this app a registration to The IoT Cloud is required. Register via: https://www.zehnder.nl/iot-cloud
+
 Development steps:
 - Download TQAE
 - Replace modules/net.lua with net.lua file in order to catch redirect url
