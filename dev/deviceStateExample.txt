@@ -1,0 +1,69 @@
+HTTP/1.1 200 OK
+
+content-encoding: gzip
+content-type: application/json; charset=utf-8
+date: Wed, 11 Jan 2023 15:08:07 GMT
+request-context: appId=cid-v1:efc18e7f-0b7e-45b5-b4cb-dfcf01613482
+transfer-encoding: chunked
+vary: Accept-Encoding,Origin
+x-powered-by: ASP.NET
+
+{
+    "deviceId": 5665846,
+    "timestamp": "2023-01-11T15:03:48+00:00",
+    "values": {
+        "deviceId": "000946347604",
+        "timeSeriesType": 1,
+        "exhaustAirTemp": 123,
+        "exhaustSpeed": 1118,
+        "exhaustDuty": 25,
+        "systemSupplySpeed": 1204,
+        "systemSupplyDuty": 27,
+        "currentVentilationPower": 15,
+        "avoidedCooling": 0,
+        "manualMode": false,
+        "exhaustFanOff": 0,
+        "supplyFanOff": 0,
+        "awayEnabled": false,
+        "boostTimerEnabled": false,
+        "extractAirHumidity": 60,
+        "exhaustAirHumidity": 74,
+        "systemSupplyTemp": 175,
+        "systemSupplyHumidity": 58,
+        "systemOutdoorTemp": 107,
+        "systemOutdoorHumidity": 67,
+        "exhaustFanAirFlow": 149,
+        "supplyFanAirFlow": 153,
+        "frostDuty": 0,
+        "bypassDuty": 0,
+        "runningMeanOutdoorTemparature": 92,
+        "coolingSeason": false,
+        "heatingSeason": true,
+        "requiredTemperature": 240,
+        "analogInput1": 0,
+        "analogInput2": 0,
+        "analogInput3": 0,
+        "analogInput4": 0,
+        "avoidedHeating": 601,
+        "postSupplyAirTempAfterComfoCool": 0,
+        "exhaustAirTempAfterComfoCool": 0,
+        "postHeaterPresence": false,
+        "hoodPresence": false,
+        "hoodIsOn": false,
+        "remainingFilterDuration": 110,
+        "limitRMOTCooling": 200,
+        "limitRMOTHeating": 150,
+        "extractAirTemp": 183,
+        "ventilationPreset": 1,
+        "comfoCoolCompressorState": 1,
+        "comfortTemperatureMode": 0,
+        "passiveTemperatureMode": 1,
+        "temperatureProfile": 2,
+        "ventilationMode": 0,
+        "postHeaterMode": 0,
+        "bypassMode": 2,
+        "warmProfileTemp": 230,
+        "coolProfileTemp": 190,
+        "normalProfileTemp": 210
+    }
+}
