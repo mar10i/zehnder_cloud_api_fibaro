@@ -5,10 +5,14 @@ _=loadfile and loadfile("TQAE.lua"){}
 --FILE:dev/HTTPClient.lua,HTTPClient;
 --FILE:dev/i18n.lua,i18n;
 --FILE:dev/Zehnder.lua,Zehnder;
+--FILE:dev/Childs.lua,Childs;
+--FILE:dev/Toolbox.lua,Toolbox;
+--FILE:dev/Toolbox_child.lua,Toolbox_child;
 
 --%%name="Zehnder"
 --%%id=350
---%%quickVars={SubscriptionKey="",Interval=""}
+--%%type="com.fibaro.deviceController"
+--%%quickVars={SubscriptionKey="71bc215013d743bf802e10943d2f480c",Interval="1"}
 --%%u1={label="labelTitle", text="Zehnder"}
 --%%u2={label="labelMsg", text=""}
 --%%u3={{button="btnSearch",text="Search",onReleased="searchEvent"},{button="btnRefresh",text="Refresh",onReleased="refreshEvent"}}
@@ -17,68 +21,71 @@ _=loadfile and loadfile("TQAE.lua"){}
 --%%u6={{button="btnPreset1", text="Preset 1", onReleased="setVentilationPreset"},{button="btnPreset2", text="Preset 2", onReleased="setVentilationPreset"},{button="btnPreset3", text="Preset 3", onReleased="setVentilationPreset"},{button="btnPreset4", text="Preset 4", onReleased="setVentilationPreset"}}
 --%%u7={{button="btnScene1", text="Scene 1", onReleased="activateScene"},{button="btnScene2", text="Scene 2", onReleased="activateScene"},{button="btnScene3", text="Scene 3", onReleased="activateScene"},{button="btnScene4", text="Scene 4", onReleased="activateScene"},{button="btnScene5", text="Scene 5", onReleased="activateScene"}}
 
---%%u8={label="labelventilationPreset", text="-"}
---%%u9={label="labelmanualMode", text="-"}
---%%u10={label="labelawayEnabled", text="-"}
---%%u11={label="labelboostTimerEnabled", text="-"}
---%%u12={label="labelremainingFilterDuration", text="-"}
+--%%u8={label="labelventilationPreset", text="ventilationPreset"}
+--%%u9={label="labelmanualMode", text="manualMode"}
+--%%u10={label="labelawayEnabled", text="awayEnabled"}
+--%%u11={label="labelboostTimerEnabled", text="boostTimerEnabled"}
+--%%u12={label="labelremainingFilterDuration", text="remainingFilterDuration"}
 
---%%u13={label="labelextractAirTemp", text="-"}
---%%u14={label="labelextractAirHumidity", text="-"}
---%%u15={label="labelexhaustAirTemp", text="-"}
---%%u16={label="labelexhaustAirHumidity", text="-"}
---%%u17={label="labelsystemSupplyTemp", text="-"}
---%%u18={label="labelsystemSupplyHumidity", text="-"}
---%%u19={label="labelsystemOutdoorTemp", text="-"}
---%%u20={label="labelsystemOutdoorHumidity", text="-"}
+--%%u13={label="labelextractAirTemp", text="extractAirTemp"}
+--%%u14={label="labelextractAirHumidity", text="extractAirHumidity"}
+--%%u15={label="labelexhaustAirTemp", text="exhaustAirTemp"}
+--%%u16={label="labelexhaustAirHumidity", text="exhaustAirHumidity"}
+--%%u17={label="labelsystemSupplyTemp", text="systemSupplyTemp"}
+--%%u18={label="labelsystemSupplyHumidity", text="systemSupplyHumidity"}
+--%%u19={label="labelsystemOutdoorTemp", text="systemOutdoorTemp"}
+--%%u20={label="labelsystemOutdoorHumidity", text="systemOutdoorHumidity"}
 
---%%u21={label="labelsupplyFanOff", text="-"}
---%%u22={label="labelsystemSupplySpeed", text="-"}
---%%u23={label="labelsystemSupplyDuty", text="-"}
---%%u24={label="labelsupplyFanAirFlow", text="-"}
---%%u25={label="labelexhaustFanOff", text="-"}
---%%u26={label="labelexhaustSpeed", text="-"}
---%%u27={label="labelexhaustDuty", text="-"}
---%%u28={label="labelexhaustFanAirFlow", text="-"}
+--%%u21={label="labelsupplyFanOff", text="supplyFanOff"}
+--%%u22={label="labelsystemSupplySpeed", text="systemSupplySpeed"}
+--%%u23={label="labelsystemSupplyDuty", text="systemSupplyDuty"}
+--%%u24={label="labelsupplyFanAirFlow", text="supplyFanAirFlow"}
+--%%u25={label="labelexhaustFanOff", text="exhaustFanOff"}
+--%%u26={label="labelexhaustSpeed", text="exhaustSpeed"}
+--%%u27={label="labelexhaustDuty", text="exhaustDuty"}
+--%%u28={label="labelexhaustFanAirFlow", text="exhaustFanAirFlow"}
 
---%%u29={label="labelcurrentVentilationPower", text="-"}
---%%u30={label="labelavoidedHeating", text="-"}
---%%u31={label="labelavoidedCooling", text="-"}
+--%%u29={label="labelcurrentVentilationPower", text="currentVentilationPower"}
+--%%u30={label="labelavoidedHeating", text="avoidedHeating"}
+--%%u31={label="labelavoidedCooling", text="avoidedCooling"}
 
---%%u32={label="labelbypassMode", text="-"}
---%%u33={label="labelbypassDuty", text="-"}
+--%%u32={label="labelbypassMode", text="bypassMode"}
+--%%u33={label="labelbypassDuty", text="bypassDuty"}
 
---%%u34={label="labelheatingSeason", text="-"}
---%%u35={label="labelcoolingSeason", text="-"}
---%%u36={label="labellimitRMOTHeating", text="-"}
---%%u37={label="labellimitRMOTCooling", text="-"}
---%%u38={label="labelrunningMeanOutdoorTemparature", text="-"}
+--%%u34={label="labelheatingSeason", text="heatingSeason"}
+--%%u35={label="labelcoolingSeason", text="coolingSeason"}
+--%%u36={label="labellimitRMOTHeating", text="limitRMOTHeating"}
+--%%u37={label="labellimitRMOTCooling", text="limitRMOTCooling"}
+--%%u38={label="labelrunningMeanOutdoorTemparature", text="runningMeanOutdoorTemparature"}
 
---%%u39={label="labeldeviceId", text="-"}
---%%u40={label="labeltimeSeriesType", text="-"}
---%%u41={label="labelfrostDuty", text="-"}
---%%u42={label="labelrequiredTemperature", text="-"}
---%%u43={label="labelanalogInput1", text="-"}
---%%u44={label="labelanalogInput2", text="-"}
---%%u45={label="labelanalogInput3", text="-"}
---%%u46={label="labelanalogInput4", text="-"}
---%%u47={label="labelpostSupplyAirTempAfterComfoCool", text="-"}
---%%u48={label="labelexhaustAirTempAfterComfoCool", text="-"}
---%%u49={label="labelpostHeaterPresence", text="-"}
---%%u50={label="labelhoodPresence", text="-"}
---%%u51={label="labelhoodIsOn", text="-"}
---%%u52={label="labelcomfoCoolCompressorState", text="-"}
---%%u53={label="labelcomfortTemperatureMode", text="-"}
---%%u54={label="labelpassiveTemperatureMode", text="-"}
---%%u55={label="labeltemperatureProfile", text="-"}
---%%u56={label="labelventilationMode", text="-"}
---%%u57={label="labelpostHeaterMode", text="-"}
---%%u58={label="labelwarmProfileTemp", text="-"}
---%%u59={label="labelcoolProfileTemp", text="-"}
---%%u60={label="labelnormalProfileTemp", text="-"}
+--%%u39={label="labeldeviceId", text="deviceId"}
+--%%u40={label="labeltimeSeriesType", text="timeSeriesType"}
+--%%u41={label="labelfrostDuty", text="frostDuty"}
+--%%u42={label="labelrequiredTemperature", text="requiredTemperature"}
+--%%u43={label="labelanalogInput1", text="analogInput1"}
+--%%u44={label="labelanalogInput2", text="analogInput2"}
+--%%u45={label="labelanalogInput3", text="analogInput3"}
+--%%u46={label="labelanalogInput4", text="analogInput4"}
+--%%u47={label="labelpostSupplyAirTempAfterComfoCool", text="postSupplyAirTempAfterComfoCool"}
+--%%u48={label="labelexhaustAirTempAfterComfoCool", text="exhaustAirTempAfterComfoCool"}
+--%%u49={label="labelpostHeaterPresence", text="postHeaterPresence"}
+--%%u50={label="labelhoodPresence", text="hoodPresence"}
+--%%u51={label="labelhoodIsOn", text="hoodIsOn"}
+--%%u52={label="labelcomfoCoolCompressorState", text="comfoCoolCompressorState"}
+--%%u53={label="labelcomfortTemperatureMode", text="comfortTemperatureMode"}
+--%%u54={label="labelpassiveTemperatureMode", text="passiveTemperatureMode"}
+--%%u55={label="labeltemperatureProfile", text="temperatureProfile"}
+--%%u56={label="labelventilationMode", text="ventilationMode"}
+--%%u57={label="labelpostHeaterMode", text="postHeaterMode"}
+--%%u58={label="labelwarmProfileTemp", text="warmProfileTemp"}
+--%%u59={label="labelcoolProfileTemp", text="coolProfileTemp"}
+--%%u60={label="labelnormalProfileTemp", text="normalProfileTemp"}
 
 
 --function QuickApp:copyToolbox(a,b)local c=api.get(("/quickApp/%s/files/%s"):format(a,b))assert(c,"File doesn't exists")local d=api.get(("/quickApp/%s/files/%s"):format(self.id,b))if not d then local e,f=api.post(("/quickApp/%s/files"):format(self.id),c)if f==200 then self:debug("File '",b,"' added")else self:error("Error:",f)end elseif d.content~=c.content then local e,f=api.put(("/quickApp/%s/files/%s"):format(self.id,b),c)if f==200 then self:debug("File '",b,"' updated")else self:error("Error:",f)end else self:debug("File '",b,"' up to date")end end
+
+local _version = "1.0"
+modules = {"childs"}
 
 function QuickApp:onInit()
   self.i18n = i18n:new(api.get("/settings/info").defaultLanguage)
@@ -93,6 +100,42 @@ function QuickApp:onInit()
   self.mode3 = {"Off","Autoonly","On"}
   self.deviceData = {}
   self.deviceState = {}
+  
+--  self:copyToolbox(185,"Toolbox")
+--  self:copyToolbox(185,"Toolbox_child")
+  
+  local cdevs = api.get("/devices?parentId="..self.id) or {} -- Pick up all my children 
+  function self:initChildDevices() end -- Null function, else Fibaro calls it after onInit()...
+
+  if #cdevs==0 then -- No children, create children
+    local initChildData = { -- Just my own local table to be able to make a loop - you may get your initial data elsewhere...
+      {className="remainingFilterDuration", type="com.fibaro.multilevelSensor", value=0, unit=self.i18n:get('unitDays')}, -- ,otherData=
+    }
+    for _,c in ipairs(initChildData) do
+      local child = self:createChildDevice(
+        {name = self.i18n:get(c.className.."ChildName"),
+          type=c.type,
+          value=c.value,
+          unit=c.unit,
+          initialProperties = {}, -- Add properties if you need
+          initialInterfaces = {}, -- Add interfaces if you need
+        },
+        _G[c.className] -- Fetch class constructor from class name
+      )
+--      child.otherData = c.otherData
+      child:setVariable("className",c.className)  -- Save class name so we know when we load it next time
+--      child:setVariable("otherData",tostring(c.otherData)) -- Save other data
+    end   
+  else  -- Ok, we already have children, instantiate them with the correct class
+    -- This is more or less what self:initChildDevices does but this can handle mapping different classes to the same type...
+    for _,child in ipairs(cdevs) do
+      local className = getChildVariable(child,"className") -- Fetch child class name
+      local childObject = _G[className](child) -- Create child object from the contstructor name
+      self.childDevices[child.id]=childObject
+      childObject.parent = self          -- Setup parent link to device controller
+--      childObject.otherData = tonumber(childObject:getVariable("otherData")) -- we stored a number...
+    end
+  end
   
   self:trace(self.title)
   self:updateView("labelTitle", "text", self.title)
@@ -207,6 +250,10 @@ function QuickApp:updateDeviceState(callback)
     self:updateView("btnRefresh", "text", self.i18n:get('refresh'))
     self:updateView("labelMsg", "text", string.format(self.i18n:get('last-update'), os.date('%Y-%m-%d %H:%M:%S')))
     if callback ~= nil then callback() end
+    for id, child in pairs(self.childDevices) do
+      QuickApp:debug("Child: "..child.name)
+      child:updateValue()
+    end
     self:trace("End updateDeviceState")
   end
   self.zehnder:getDeviceState(self:getVariable("DeviceID"),getDeviceStateCallback)
@@ -214,13 +261,15 @@ end
 
 function QuickApp:updateUIdeviceState(deviceState)
   self:uiUpdateLabel("deviceId",deviceState.deviceId)
-  self:uiUpdateLabel("timestamp",deviceState.timestamp)
-
-local pattern = "(%d+)-(%d+)-(%d+)T(%d+):(%d+):(%d+)%+(%d+):(%d+)"
-local runyear, runmonth, runday, runhour, runminute, runseconds = deviceState.timestamp:match(pattern)
-local convertedTimestamp = os.time({year = runyear, month = runmonth, day = runday, hour = runhour, min = runminute, sec = runseconds})
-QuickApp:debug(convertedTimestamp)
-
+  self:uiUpdateLabel("deviceId",deviceState.deviceId)
+  --QuickApp:debug("Timestamp: "..deviceState.timestamp)
+  local pattern = "(%d+)-(%d+)-(%d+)T(%d+):(%d+):(%d+)%+(%d+):(%d+)"
+  local runyear, runmonth, runday, runhour, runminute, runseconds = deviceState.timestamp:match(pattern)
+  local offset=os.time()-os.time(os.date("!*t"))-os.time({year=1970, month=1, day=1, hour=0})
+  local convertedTimestamp = os.time({year = runyear, month = runmonth, day = runday, hour = runhour, min = runminute, sec = runseconds})+offset
+  --QuickApp:debug(convertedTimestamp)
+  --QuickApp:debug("Converted Timestamp: "..os.date("!%Y-%m-%d %X",convertedTimestamp))
+  self:uiUpdateLabel("timestamp",os.date("!%Y-%m-%d %X",convertedTimestamp))
   for k, v in pairs(deviceState.values) do
     if k == "ventilationPreset" then
       -- Update Preset Buttons to current state
@@ -260,6 +309,21 @@ function QuickApp:uiUpdateLabel(elm,value)
   or elm == "normalProfileTemp"
   then
     value = tonumber(value)/10
+  end
+  if elm == "temperatureProfile"
+  or elm == "ventilationMode"
+  or elm == "postHeaterMode"
+  or elm == "bypassMode"
+  then
+    value = self.mode[tonumber(value)+1]
+  end
+  if elm == "comfortTemperatureMode"
+  then
+    value = self.mode2[tonumber(value)+1]
+  end
+  if elm == "passiveTemperatureMode"
+  then
+    value = self.mode3[tonumber(value)+1]
   end
   -- Update Labels to corresponding language template
   self:updateView("label"..elm, "text", string.format(self.i18n:get(elm), value))

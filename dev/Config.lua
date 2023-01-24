@@ -34,19 +34,27 @@ function Config:getTimeoutInterval()
     return tonumber(self.interval) * 60000
 end
 
---[[
-This function takes variables and sets as global variables if those are not set already.
-This way, adding other devices might be optional and leaves option for users, 
-what they want to add into HC3 virtual devices.
-]]
 function Config:init()
+  self.baseUrl = ''
   self.subscriptionKey = tostring(self.app:getVariable('SubscriptionKey'))
   self.deviceID = tostring(self.app:getVariable('DeviceID'))
   self.buildingId = tostring(self.app:getVariable('BuildingId'))
   self.interval = self.app:getVariable('Interval')
 
-  -- handling interval
-  if not self.interval or self.interval == "" then
-    self.interval = "1"
+  if not self.subscriptionKey or self.subscriptionKey == '' then
+    self.app:setVariable('SubscriptionKey','')
+    self.subscriptionKey = ''
+  end
+  if not self.deviceID or self.deviceID == '' then
+    self.app:setVariable('DeviceID','')
+    self.deviceID = ''
+  end
+  if not self.buildingId or self.buildingId == '' then
+    self.app:setVariable('BuildingId','')
+    self.buildingId = ''
+  end
+  if not self.interval or self.interval == '' then
+    self.app:setVariable('Interval','5')
+    self.interval = '5'
   end
 end
