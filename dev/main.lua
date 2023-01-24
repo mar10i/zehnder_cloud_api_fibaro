@@ -8,7 +8,7 @@ _=loadfile and loadfile("TQAE.lua"){}
 
 --%%name="Zehnder"
 --%%id=350
---%%quickVars={SubscriptionKey="71bc215013d743bf802e10943d2f480c",Interval="1"}
+--%%quickVars={SubscriptionKey="",Interval=""}
 --%%u1={label="labelTitle", text="Zehnder"}
 --%%u2={label="labelMsg", text=""}
 --%%u3={{button="btnSearch",text="Search",onReleased="searchEvent"},{button="btnRefresh",text="Refresh",onReleased="refreshEvent"}}
