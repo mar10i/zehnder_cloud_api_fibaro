@@ -81,16 +81,20 @@ phrases = {
         ['coolProfileTemp']                 = 'Cool Profile Temp: %s',
         ['normalProfileTemp']               = 'Normal Profile Temp: %s',
         
-        ['remainingFilterDurationChildName'] = 'Filter',
+        ['ventilationPresetChildName'] = 'Ventilation Speed',
+        ['Away']                       = 'Away',
+        ['Low']                        = 'Low',
+        ['Medium']                     = 'Medium',
+        ['High']                       = 'High',
         
-        ['unitDay']               = ' day',
-        ['unitDays']              = ' days',
-        ['unitWeek']              = ' week',
-        ['unitWeeks']             = ' weeks',
-    
-        ['replace-filters']       = 'Replace filters',
-        ['order-filters']         = 'Order filters',
-        ['remaining-weeks']       = '%s weeks',
+        ['remainingFilterDurationChildName'] = 'Filter',
+        ['unitDay']                          = ' day',
+        ['unitDays']                         = ' days',
+        ['unitWeek']                         = ' week',
+        ['unitWeeks']                        = ' weeks',
+        ['replace-filters']                  = 'Replace filters',
+        ['order-filters']                    = 'Order filters',
+        ['remaining-weeks']                  = '%s weeks',
     },
     nl = {
         ['search-devices'] = 'Zoek apparaten',
@@ -161,15 +165,19 @@ phrases = {
         ['coolProfileTemp']                 = 'Cool Profile Temp: %.1f°C',
         ['normalProfileTemp']               = 'Normal Profile Temp: %.1f°C',
         
+        ['ventilationPresetChildName'] = 'Ventilatie Stand',
+        ['Away']                       = 'Uit',
+        ['Low']                        = 'Laag',
+        ['Medium']                     = 'Midden',
+        ['High']                       = 'Hoog',
+        
         ['remainingFilterDurationChildName'] = 'Filter',
-        
-        ['unitDay']               = ' dag',
-        ['unitDays']              = ' dagen',
-        ['unitWeek']              = ' week',
-        ['unitWeeks']             = ' weken',
-        
-        ['replace-filters']       = 'Vervang filters',
-        ['order-filters']         = 'Bestel filters',
-        ['remaining-weeks']       = '%s weken',
+        ['unitDay']                          = ' dag',
+        ['unitDays']                         = ' dagen',
+        ['unitWeek']                         = ' week',
+        ['unitWeeks']                        = ' weken',
+        ['replace-filters']                  = 'Vervang filters',
+        ['order-filters']                    = 'Bestel filters',
+        ['remaining-weeks']                  = '%s weken',
     }
 }

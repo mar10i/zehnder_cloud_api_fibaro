@@ -12,7 +12,7 @@ _=loadfile and loadfile("TQAE.lua"){}
 --%%name="Zehnder"
 --%%id=350
 --%%type="com.fibaro.deviceController"
---%%quickVars={SubscriptionKey="",Interval="1"}
+--%%quickVars={SubscriptionKey="71bc215013d743bf802e10943d2f480c",Interval="1"}
 --%%u1={label="labelTitle", text="Zehnder"}
 --%%u2={label="labelMsg", text=""}
 --%%u3={{button="btnSearch",text="Search",onReleased="searchEvent"},{button="btnRefresh",text="Refresh",onReleased="refreshEvent"}}
@@ -109,6 +109,7 @@ function QuickApp:onInit()
 
   if #cdevs==0 then -- No children, create children
     local initChildData = { -- Just my own local table to be able to make a loop - you may get your initial data elsewhere...
+      {className="ventilationPreset", type="com.fibaro.multilevelSwitch", value=0, unit=''}, -- ,otherData=
       {className="remainingFilterDuration", type="com.fibaro.multilevelSensor", value=0, unit=self.i18n:get('unitDays')}, -- ,otherData=
     }
     for _,c in ipairs(initChildData) do
@@ -129,7 +130,7 @@ function QuickApp:onInit()
   else  -- Ok, we already have children, instantiate them with the correct class
     -- This is more or less what self:initChildDevices does but this can handle mapping different classes to the same type...
     for _,child in ipairs(cdevs) do
-      local className = getChildVariable(child,"className") -- Fetch child class name
+      local className = self:getChildVariable(child,"className") -- Fetch child class name
       local childObject = _G[className](child) -- Create child object from the contstructor name
       self.childDevices[child.id]=childObject
       childObject.parent = self          -- Setup parent link to device controller
@@ -344,17 +345,19 @@ function QuickApp:activateScene(e)
 end
 
 function QuickApp:setVentilationPreset(e)
+  self:debug("setVentilationPreset input: "..type(e))
   self:debug("Start setting Ventilation Preset")
-  local preset = tonumber(string.sub(e.elementName,-1,-1))
+  local preset = ''
+  if type(e) == "string" then preset = e else preset = self.presets[tonumber(string.sub(e.elementName,-1,-1))] end
   self:updatePresetButtons(preset)
   local commands = {
     setVentilationPreset = {
-      value = self.presets[preset]
+      value = preset
     }
   }
   local setVentilationPresetCallback = function ()
     self:debug("Ventilation preset is set")
-    self:updateDeviceState()
+    --self:updateDeviceState()
   end
   self.zehnder:putComfosysCommand(self:getVariable("DeviceID"), commands, setVentilationPresetCallback)
 end

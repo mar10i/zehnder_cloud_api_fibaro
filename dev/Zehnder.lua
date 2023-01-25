@@ -15,7 +15,7 @@ function Zehnder:new(config)
 end
 
 function Zehnder:addAuthHeaders(headers)
-  if not headers then headers = {} end
+  if headers == nil then headers = {} end
   headers["Authorization"] = "Bearer " .. self.config:getToken()
   headers["x-api-key"] = self.subscription_key
   return headers
@@ -63,24 +63,30 @@ end
 
 function Zehnder:putComfosysCommand(deviceId, commands, callback)
   local url = 'devices/'..deviceId..'/comfosys/settings'
-  local errorMsg = 'Unable to get the supported scenes'
+  local errorMsg = 'Unable to put the command'
   local fail = function(response) QuickApp:error(errorMsg) end
   local success = function(response)
+    --QuickApp:debug("Put Command status: "..response.status)
     if response.status ~= 200 then fail(response) return end
-    local data = json.decode(response.data)
+    --local data = json.decode(response.data)
     if callback ~= nil then callback() end
   end
+  local headers = {}
+  headers["Content-Type"] = "application/json"
+  headers["Cache-Control"] = "no-cache"
   local data = json.encode(commands)
-  self.http:put(url, data, success, fail, self:addAuthHeaders())
+  QuickApp:debug(data)
+  self.http:put(url, data, success, fail, self:addAuthHeaders(headers))
 end
 
 function Zehnder:activateScene(buildingId, sceneId, callback)
   local url = 'scenes/'..buildingId..'/activate/'..sceneId
-  local errorMsg = 'Unable to get the supported scenes'
+  local errorMsg = 'Unable to activate the scene'
   local fail = function(response) QuickApp:error(errorMsg) end
   local success = function(response)
+    --QuickApp:debug("Activate scene status: "..response.status)
     if response.status ~= 200 then fail(response) return end
-    local data = json.decode(response.data)
+    --local data = json.decode(response.data)
     if callback ~= nil then callback() end
   end
   local data = {}
