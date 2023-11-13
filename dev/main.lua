@@ -10,9 +10,9 @@ _=loadfile and loadfile("TQAE.lua"){}
 --FILE:dev/Toolbox_child.lua,Toolbox_child;
 
 --%%name="Zehnder"
---%%id=350
+--%%id=357
 --%%type="com.fibaro.deviceController"
---%%quickVars={SubscriptionKey="",Interval="1"}
+--%%quickVars={SubscriptionKey="REPLACE-BY-KEY",ApiKeyName="REPLACE-BY-KEY",ApiKeySecret="REPLACE-BY-KEY",Interval="1"}
 --%%u1={label="labelTitle", text="Zehnder"}
 --%%u2={label="labelMsg", text=""}
 --%%u3={{button="btnSearch",text="Search",onReleased="searchEvent"},{button="btnRefresh",text="Refresh",onReleased="refreshEvent"}}
@@ -90,7 +90,7 @@ modules = {"childs"}
 function QuickApp:onInit()
   self.i18n = i18n:new(api.get("/settings/info").defaultLanguage)
   self.config = Config:new(self)
-  self.config.baseUrl = 'https://zehnder-prod-we-apim.azure-api.net/cloud/api/v2.1/'
+  self.config.baseUrl = 'https://zehnder-test-we-apim.azure-api.net/cloud/api/v2.1/'
   self.zehnder = Zehnder:new(self.config)
 
   self.title = "Zehnder Cloud Api - v2.1"
@@ -161,7 +161,19 @@ function QuickApp:varCheck()
     self:updateView("labelMsg", "text", "Please supply the SubscriptionKey variable!")
     return 0
   end
---  self:debug("SubscriptionKey: ",self:getVariable("SubscriptionKey"))
+  --self:debug("SubscriptionKey: ",self:getVariable("SubscriptionKey"))
+  -- Check ApiKeyName
+  if self.config:getApiKeyName() == "" then
+    self:updateView("labelMsg", "text", "Please supply the ApiKeyName variable!")
+    return 0
+  end
+  --self:debug("ApiKeyName: ",self:getVariable("ApiKeyName"))
+  -- Check ApiKeySecret
+  if self.config:getApiKeySecret() == "" then
+    self:updateView("labelMsg", "text", "Please supply the ApiKeySecret variable!")
+    return 0
+  end
+  --self:debug("ApiKeySecret: ",self:getVariable("ApiKeySecret"))
   -- Passed all checks
   self:updateView("labelMsg", "text", "All variables are available!")
   return 1
