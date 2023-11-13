@@ -7,6 +7,8 @@ class 'Zehnder'
 function Zehnder:new(config)
   self.config = config
   self.subscription_key = config:getSubscriptionKey()
+  self.api_key_name = config:getApiKeyName()
+  self.api_key_secret = config:getApiKeySecret()
   self.device_id = config:getDeviceID()
   self.http = HTTPClient:new({
     baseUrl = config:getBaseUrl()
@@ -16,8 +18,10 @@ end
 
 function Zehnder:addAuthHeaders(headers)
   if headers == nil then headers = {} end
-  headers["Authorization"] = "Bearer " .. self.config:getToken()
+--  headers["Authorization"] = "Bearer " .. self.config:getToken()
   headers["x-api-key"] = self.subscription_key
+  headers["Zehnder-ApiName"] = self.api_key_name
+  headers["Zehnder-ApiKey"] = self.api_key_secret
   return headers
 end
 
@@ -26,6 +30,7 @@ function Zehnder:getData(url, errorMsg, callback)
   local success = function(response)
     if response.status ~= 200 then fail(response) return end
     local data = json.decode(response.data)
+    print(data)
     if callback ~= nil then callback(data) end
   end
   self.http:get(url, success, fail, self:addAuthHeaders())
