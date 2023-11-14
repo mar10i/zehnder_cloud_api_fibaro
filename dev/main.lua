@@ -310,6 +310,7 @@ function QuickApp:uiUpdateLabel(elm,value)
   value = tostring(value)
   if elm == "exhaustAirTemp"
   or elm == "systemOutdoorTemp"
+  or elm == "systemSupplyTemp"
   or elm == "runningMeanOutdoorTemparature"
   or elm == "requiredTemperature"
   or elm == "postSupplyAirTempAfterComfoCool"
