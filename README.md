@@ -10,8 +10,8 @@ Fibaro HC3 Quickapp development for Zehnder ComfoAirQ control via cloud api
 - Zehnder Dashboard: https://mydevices.beta.zehnder.cloud
 - Zehnder Cloud API: https://developer.beta.zehnder.cloud
 
-To control you ComfoAirQ with this app a registration to The IoT Cloud is required. Register via: https://www.zehnder.nl/iot-cloud
-Follow the instructions to enable the beta app and create connection to the cloud. When the connection is made a api key-name combination can be requested. Together with the subscription key of the developer cloud the Quickapp can make connection to your Zehneder device.
+To control you ComfoAirQ with this app a registration to The IoT Cloud is required. Register via: https://www.zehnder.nl/iot-cloud.
+Follow the instructions to enable the beta app and create connection to the cloud. When the connection is made a api key-name combination can be requested. Together with the subscription key of the developer cloud the Quickapp can make connection to your Zehnder device.
 
 Development steps:
 - Download TQAE
