@@ -12,7 +12,7 @@ _=loadfile and loadfile("TQAE.lua"){}
 --%%name="Zehnder"
 --%%id=357
 --%%type="com.fibaro.deviceController"
---%%quickVars={SubscriptionKey="REPLACE-BY-KEY",ApiKeyName="REPLACE-BY-KEY",ApiKeySecret="REPLACE-BY-KEY",Interval="1"}
+--%%quickVars={SubscriptionKey="",ApiKeyName="",ApiKeySecret="",Interval="1"}
 --%%u1={label="labelTitle", text="Zehnder"}
 --%%u2={label="labelMsg", text=""}
 --%%u3={{button="btnSearch",text="Search",onReleased="searchEvent"},{button="btnRefresh",text="Refresh",onReleased="refreshEvent"}}
